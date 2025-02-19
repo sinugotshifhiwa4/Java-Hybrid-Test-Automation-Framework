@@ -10,6 +10,9 @@ import com.hta.drivers.BrowserFactory;
 import com.hta.drivers.DriverFactory;
 import com.hta.testDataStorage.TestContextIds;
 import com.hta.ui.pages.hotelPages.LoginPage;
+import com.hta.ui.pages.hotelPages.SearchHotelPage;
+import com.hta.ui.pages.hotelPages.SelectHotelPage;
+import com.hta.ui.pages.hotelPages.TopNavigationPage;
 import com.hta.utils.jacksonUtils.JsonDataReader;
 import com.hta.utils.logging.ErrorHandler;
 import com.hta.utils.logging.LoggerUtils;
@@ -31,6 +34,9 @@ public class TestBase extends BasePage {
     private static final String BROWSER = "CHROME_BROWSER";
     private static final String URL = "PORTAL_BASE_URL";
 
+    // Running Mode
+    private static final String HEADLESS_MODE = "--headless";
+
     // Test Data Ids
     private static final TestContextIds BOOKING_ID_ONE = TestContextIds.BOOKING_TEST_ID_ONE;
 
@@ -44,9 +50,9 @@ public class TestBase extends BasePage {
 
     // Pages
     protected LoginPage loginPage;
-//    protected TopNavigationPage topNavigationPage;
-//    protected SearchHotelPage searchHotelPage;
-//    protected SelectHotelPage selectHotelPage;
+    protected TopNavigationPage topNavigationPage;
+    protected SearchHotelPage searchHotelPage;
+    protected SelectHotelPage selectHotelPage;
 //    protected BookHotelPage bookHotelPage;
 //    protected BookingConfirmationPage bookingConfirmationPage;
 
@@ -104,9 +110,9 @@ public class TestBase extends BasePage {
 
     private void initializePages(WebDriver driver) {
         loginPage = new LoginPage(driver);
-//        topNavigationPage = new TopNavigationPage(driver);
-//        searchHotelPage = new SearchHotelPage(driver);
-//        selectHotelPage = new SelectHotelPage(driver);
+        topNavigationPage = new TopNavigationPage(driver);
+        searchHotelPage = new SearchHotelPage(driver);
+        selectHotelPage = new SelectHotelPage(driver);
 //        bookHotelPage = new BookHotelPage(driver);
 //        bookingConfirmationPage = new BookingConfirmationPage(driver);
     }
@@ -115,9 +121,11 @@ public class TestBase extends BasePage {
         try {
             browserFactory = new BrowserFactory();
 
-            String browser = PropertiesConfigManager.getPropertyKeyFromCache(PropertiesFileAlias.GLOBAL.getConfigurationAlias(), BROWSER);
+            String browser = PropertiesConfigManager.getPropertyKeyFromCache(
+                    PropertiesFileAlias.GLOBAL.getConfigurationAlias(),
+                    BROWSER);
 
-            browserFactory.initializeBrowser(browser);
+            browserFactory.initializeBrowser(browser, HEADLESS_MODE);
 
             if (!driverFactory.hasDriver()) {
                 String errorMessage = "WebDriver initialization failed for thread: " + Thread.currentThread().threadId();

@@ -23,25 +23,44 @@ public class BookingTestDataProvider {
                 "Location", "Hotels", "RoomTypes");
     }
 
+    /**
+     * Provides location test data.
+     *
+     * @return Iterator of objects containing hotel locations
+     */
+    @DataProvider(name = "LocationData")
+    public static Iterator<Object[]> getLocationData() {
+        return ExcelTestDataProvider.getColumnData(BOOKING_DATA_PATH, BOOKING_SHEET, "Location");
+    }
+
+    @DataProvider(name = "HotelData")
+    public static Iterator<Object[]> getHotelsData() {
+        return ExcelTestDataProvider.getColumnData(BOOKING_DATA_PATH, BOOKING_SHEET, "Hotels");
+    }
 
     /**
      * Provides room type test data.
      *
      * @return Iterator of objects containing room types
      */
-    @DataProvider(name = "RoomTypeTestData")
+    @DataProvider(name = "RoomTypeData")
     public static Iterator<Object[]> getRoomTypeData() {
         return ExcelTestDataProvider.getColumnData(BOOKING_DATA_PATH, BOOKING_SHEET, "RoomTypes");
     }
 
-    /**
-     * Provides location test data.
-     *
-     * @return Iterator of objects containing hotel locations
-     */
-    @DataProvider(name = "LocationTestData")
-    public static Iterator<Object[]> getLocationData() {
-        return ExcelTestDataProvider.getColumnData(BOOKING_DATA_PATH, BOOKING_SHEET, "Location");
+    @DataProvider(name = "NumberOfRoomsData")
+    public static Iterator<Object[]> getNumberOfRoomsData() {
+        return ExcelTestDataProvider.getColumnData(BOOKING_DATA_PATH, BOOKING_SHEET, "NumberOfRooms");
+    }
+
+    @DataProvider(name = "AdultsPerRoomData")
+    public static Iterator<Object[]> getAdultsPerRoomData() {
+        return ExcelTestDataProvider.getColumnData(BOOKING_DATA_PATH, BOOKING_SHEET, "ChildrenPerRoom");
+    }
+
+    @DataProvider(name = "ChildrenPerRoomData")
+    public static Iterator<Object[]> getChildrenPerRoomData() {
+        return ExcelTestDataProvider.getColumnData(BOOKING_DATA_PATH, BOOKING_SHEET, "ChildrenPerRoom");
     }
 
 
