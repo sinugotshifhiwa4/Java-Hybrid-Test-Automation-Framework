@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2"
+          name="Encryption Tests">
+        <groups>
+            <run>
+                <include name="encryption"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.hta.tests.crypto.KeyGeneratorTest"/>
+            <class name="com.hta.tests.crypto.CredentialEncryptorTest"/>
+        </classes>
+    </test>
+</suite>

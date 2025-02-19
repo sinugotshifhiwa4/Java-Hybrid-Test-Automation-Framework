@@ -1,0 +1,42 @@
+{
+  "UserDetails": {
+    "firstName": "David",
+    "lastname": "Moyes",
+    "billingAddress": "Sable Park, Bridgeways, Century City, Cape Town, 7446",
+    "creditCardNumber": "5425233430109903"
+  },
+  "CreditCardType": [
+    "American Express",
+    "VISA",
+    "Master Card",
+    "Other"
+  ],
+  "ExpiryMonth": [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ],
+  "ExpiryYear": [
+    "2025",
+    "2026",
+    "2027",
+    "2028",
+    "2029",
+    "2030"
+  ],
+  "CvvNumber": [
+    "555",
+    "887",
+    "738",
+    "837"
+  ]
+}
